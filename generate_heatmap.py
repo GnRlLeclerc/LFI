@@ -13,7 +13,7 @@ from samples import mixed, noise, signal
 
 n = 100  # Amount of simulated samples for both X and Y
 m = 100  # Amount of unknown sampled data for Z
-mu = 0.5  # Importance of the signal part in the mixed samples
+mu = 0  # Importance of the signal part in the mixed samples
 pi = 0.5  # Tolerance for the kernel classification method
 N = 200  # Number of attempts to average the tries
 
@@ -44,4 +44,4 @@ for i, n in enumerate(n_range):
         results[i, j] /= N
 print()
 
-np.save("results.npy", results)
+np.save("results_all_noise.npy", results)

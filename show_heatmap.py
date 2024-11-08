@@ -1,4 +1,10 @@
-"""Show a saved heatmap"""
+"""Show a saved heatmap
+
+Usage:
+```bash
+python show_heatmap.py <path/to/heatmap.npy>
+```
+"""
 
 import sys
 from typing import Sequence
@@ -29,5 +35,6 @@ if __name__ == "__main__":
     plt.ylabel("n")
     plt.xticks(xticks, xlabels)
     plt.yticks(yticks, ylabels[::-1])
-    plt.title("False negatives in a Z = 50% X + 50% Y setting")
+    # plt.title("False negatives in a Z = 50% X + 50% Y setting")
+    plt.title("False potivies in a Z = 100% noise setting")
     plt.show()
