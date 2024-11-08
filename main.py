@@ -9,32 +9,8 @@ The probability distributions of both point coordinates are as follows:
 """
 
 import matplotlib.pyplot as plt
-import numpy as np
-import numpy.random as rd
 
-
-def noise(n_samples: int) -> np.ndarray:
-    """Generate noise samples.
-    Gaussian centered at 0 with variance 1.
-    """
-    return rd.normal(0, size=n_samples)
-
-
-def signal(n_samples: int) -> np.ndarray:
-    """Generate signal samples.
-    Offset Gaussian with lower variance than the noise.
-    """
-    return rd.normal(1, 0.5, size=n_samples)
-
-
-def mixed(n_samples: int, mu: float) -> np.ndarray:
-    """Generate mixed samples.
-
-    Args:
-        mu: importance of the signal part.
-    """
-    return mu * signal(n_samples) + (1 - mu) * noise(n_samples)
-
+from samples import mixed, noise, signal
 
 noise_x = noise(100)
 noise_y = noise(100)
