@@ -33,3 +33,9 @@ def mixed(n_samples: int, mu: float) -> np.ndarray:
         mu: importance of the signal part.
     """
     return mu * signal(n_samples) + (1 - mu) * noise(n_samples)
+
+
+def downsample(array: np.ndarray, n_samples: int) -> np.ndarray:
+    """Downsample the given array to n_samples regularly spaced."""
+
+    return array[:: len(array) // n_samples]
