@@ -18,7 +18,7 @@ def T(kernel: KernelFunction, X: np.ndarray, Y: np.ndarray, Z: np.ndarray) -> fl
     # Naive implementation (but more readable)
     total = 0
     for i in range(n):
-        for j in range(n):
+        for j in range(m):
             total += kernel(Z[j], Y[i]) - kernel(Z[j], X[i])
 
     return total / (n * m)
