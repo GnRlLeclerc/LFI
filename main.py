@@ -12,20 +12,17 @@ import matplotlib.pyplot as plt
 
 from samples import mixed, noise, signal
 
-noise_x = noise(100)
-noise_y = noise(100)
+noise = noise(1000)
 
-signal_x = signal(20)
-signal_y = signal(20)
+signal = signal(50)
 
-mixed_x = mixed(20, 0.5)
-mixed_y = mixed(20, 0.5)
+mixed = mixed(100, 0.4)
 
-plt.scatter(noise_x, noise_y, color="blue", label="Noise")
-plt.scatter(signal_x, signal_y, color="red", label="Signal")
-plt.scatter(mixed_x, mixed_y, color="green", label="Mixed")
+plt.scatter(noise[:, 0], noise[:, 1], color="blue", label="Noise")
+plt.scatter(mixed[:, 0], mixed[:, 1], color="green", label="Mixed")
+plt.scatter(signal[:, 0], signal[:, 1], color="red", label="Signal")
 plt.legend()
-plt.title("Toy dataset showcase")
+plt.title("Toy dataset showcase (40% signal, 60% noise)")
 plt.axis("equal")
 plt.grid()
 plt.show()
