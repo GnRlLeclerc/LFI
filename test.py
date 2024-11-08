@@ -8,8 +8,8 @@ We compute false negatives
 import matplotlib.pyplot as plt
 import numpy as np
 
-from kernels import get_gaussian_kernel
-from metrics import Phi
+from kernels import get_optimized_gaussian_kernel
+from metrics import Phi_opti
 from samples import mixed, noise, signal
 
 n = 100  # Amount of simulated samples for both X and Y
@@ -22,12 +22,7 @@ X = signal(n)
 Y = noise(n)
 Z = mixed(m, mu)
 
-kernel = get_gaussian_kernel(sigma=1)
-
-# Compute the metrics
-result = Phi(kernel, X, Y, Z, pi=0.5)
-
-print("Hypothesis H0: ", result)
+kernel = get_optimized_gaussian_kernel(sigma=1)
 
 m_range = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 n_range = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
@@ -42,11 +37,10 @@ for i, n in enumerate(n_range):
         Y = noise(n)
         Z = mixed(m, mu)
 
-        result = Phi(kernel, X, Y, Z, pi=0.5)
+        result = Phi_opti(kernel, X, Y, Z, pi=0.5)
         results[i, j] = result
 print()
 
 # TODO : do multiple runs, compute the average
-# TODO : use numpy to speed this up (and batch it)
 plt.imshow(results, cmap="hot", interpolation="nearest")
 plt.show()

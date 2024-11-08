@@ -16,14 +16,14 @@ def noise(n_samples: int) -> np.ndarray:
     """Generate noise samples.
     Gaussian centered at 0 with variance 1.
     """
-    return rd.normal(0, size=n_samples)
+    return rd.normal(0, size=(n_samples, 2))
 
 
 def signal(n_samples: int) -> np.ndarray:
     """Generate signal samples.
     Offset Gaussian with lower variance than the noise.
     """
-    return rd.normal(1, 0.5, size=n_samples)
+    return rd.normal(1, 0.5, size=(n_samples, 2))
 
 
 def mixed(n_samples: int, mu: float) -> np.ndarray:
