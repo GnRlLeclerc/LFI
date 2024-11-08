@@ -21,6 +21,18 @@ python main.py
 
 ```
 
+Generate a heatmap (play with the parameters in `generate_heatmap.py`):
+
+```bash
+python generate_heatmap.py
+```
+
+Display a heatmap:
+
+```bash
+python show_heatmap result.npy
+```
+
 ## Dataset
 
 ![Dataset](./images/dataset.png)
